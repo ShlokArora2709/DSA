@@ -82,6 +82,11 @@ void delfront(struct node** head){
 void delend(struct node** head){
     if(*head==NULL){
         return;}
+    if ((*head)->next == NULL) {
+        free(*head);
+        *head = NULL; // The list is now empty
+        return;
+    }
     struct node *end=*head;
     struct node *prev=NULL;
     while(end->next){
@@ -103,7 +108,12 @@ void delMid(struct node* head){
         temp1=temp1->next;
         temp2=temp2->next->next;
     }
-    prev->next=temp1->next;
+    if (prev != NULL) {
+        prev->next = temp1->next;
+    } else {
+        head = temp1->next;
+    }
+
     free(temp1);
 }
 void deleteN(struct node** head, int pos) {
@@ -132,7 +142,11 @@ void deleteN(struct node** head, int pos) {
         return;
     }
 
-    prev->next = current->next;
+    if (prev != NULL) {
+        prev->next = current->next;
+    } else {
+        *head = current->next; // Update the head if the first node is deleted
+    }
     free(current);
 }
 void displayList(struct node* head) {
