@@ -28,7 +28,7 @@ int binary_search(int arr[],int key){
     int size=sizeof(arr)/sizeof(arr[0]);
     int front=0,end=size-1;
     do{
-        int mid=(front+end)/2;
+        int mid=front+(end-front)/2;
         if(arr[mid]==key){
             return mid+1;
         }
