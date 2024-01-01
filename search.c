@@ -5,7 +5,7 @@ void main(){
     int ar[5] = {21, 43, 18, 87, 23};
     printf("enter element to search");
     scanf("%d",&k);
-    int a=linear_search(arr,k);
+    int a=linear_search(ar,k);
     if(a==0){
         printf("element not found");
     }

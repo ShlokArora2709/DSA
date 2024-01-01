@@ -7,11 +7,11 @@ struct node
     struct node *next;
 
 };
-struct node* push(struct node** last, int ndata){
+struct node* push(struct node* last, int ndata){
     struct node* newnode = (struct node*)malloc(sizeof(struct node));
     if(!newnode) {
         printf("Memory error");
-        return (*last);
+        return last;
         }
     newnode->data = ndata;
     newnode->next = newnode;
@@ -92,8 +92,8 @@ int main(){
                 break;
             case 4:
                 printf("Enter key to search: ");
-                scanf("%d", &key);
-                if (search(head, k)==1) {
+                scanf("%d", &k);
+                if (search(&last, k)==1) {
                     printf("Key found in the list.\n");
                 } else {
                     printf("Key not found in the list.\n");

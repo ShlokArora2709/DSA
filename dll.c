@@ -1,7 +1,10 @@
-struct node {
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
     int data;
-    struct node* next;
-    struct node* prev;
+    struct Node* next;
+    struct Node* prev;
 };
 // Given a reference (pointer to pointer) to the head
 // of a list and an int, inserts a new node
@@ -85,6 +88,4 @@ void insertBefore(struct Node* next_node, int new_data)
 	// 6. Change next of new_node's previous node
 	if (new_node->prev != NULL)
 		new_node->prev->next = new_node;
-	else
-		head = new_node;
 }
